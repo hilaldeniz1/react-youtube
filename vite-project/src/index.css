@@ -8,4 +8,5 @@
   gap: 50px;
   grid-template-columns: repeat(auto-fit, minMax(350px, 1fr));
   justify-content: space-between;
+  padding: 30px;
 }

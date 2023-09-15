@@ -10,7 +10,7 @@ const SideNav = () => {
     <div className="flex flex-col p-4">
       {categories.map((i, index) => (
         <div
-          //tıklanınca tipi kategori olan secenekleri context e aktarır
+          // tıklanınca tipi kategori seçenekleri context'e aktarır
           onClick={() => {
             if (i.type !== "menu") {
               setSelected(i);
@@ -19,10 +19,10 @@ const SideNav = () => {
           key={index}
         >
           <div
-            //   secili kategorinin ismi ekrana bastıgımınkıyle eslesrse arka planını degıstır
-            className={`${
+            // seçili ktargorinin ismi ekrna bastığıminkiyle eşleşirse arkaplanını değiştir
+            className={` ${
               selected.name === i.name && "bg-[#2d2d2d]"
-            }flex items-center gap-2 p-2 py-4 text-base md:text-lg cursor-pointer rounded-md transition hover:bg-[#2d2d2d]`}
+            } flex items-center gap-2 p-2 py-4 text-base md:text-lg cursor-pointer rounded-md transition hover:bg-[#2d2d2d]`}
           >
             {i.icon}
             <span>{i.name}</span>

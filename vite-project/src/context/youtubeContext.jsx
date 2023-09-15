@@ -4,24 +4,25 @@ import { getData } from "../helpers";
 
 export const YoutubeContext = createContext();
 
-// contextteki verileri bütün uygulamaya saglar
+// context'deki verileri bütün uygulamaya sağlar
 export const YoutubeProvider = ({ children }) => {
   const [selected, setSelected] = useState({
     name: "Anasayfa",
     type: "home",
   });
+
   const [videos, setVideos] = useState(null);
 
   useEffect(() => {
     setVideos(null);
 
     if (selected.type === "home") {
-      // anasayfa videoları
+      // anasyafa videolar
       getData("/home/").then((data) => setVideos(data.contents));
     } else {
       // kategori videoları
-      getData(`/search/?q=${selected.name.toLocaleLowerCase()}`).then((data) =>
-        setVideos(data.contents)
+      getData(`/search/?q=${selected.name.toLowerCase()}`).then(
+        (data) => setVideos(data.contents) //! contents'i unutmuşuz
       );
     }
   }, [selected]);
